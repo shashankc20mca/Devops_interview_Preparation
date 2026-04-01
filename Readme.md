@@ -1,21 +1,21 @@
 
 # Fundamentals of devops
 
-## 1. What is DevOps?
+## What is DevOps?
 DevOps is the combination of development and operations to deliver software quickly, reliably, and efficiently through collaboration and automation.
 
-## 2. Why was DevOps introduced or main goals of DevOps?
+## Why was DevOps introduced or main goals of DevOps?
 DevOps was introduced to remove the gap between development and operations teams. Earlier, both teams worked separately, which caused slow releases, manual errors, and deployment issues. DevOps helped solve this by improving collaboration, automation, faster delivery, and system reliability.
 
-## 3. What problems does DevOps solve?
+## What problems does DevOps solve?
 DevOps solves problems like slow software delivery, poor communication between teams, manual deployment errors, environment mismatch issues, and slow bug fixing. It improves collaboration, automates repetitive tasks, makes deployments faster and more reliable, and helps teams monitor and fix issues quickly
 
-## 4. What is the difference between traditional software development and DevOps
+## What is the difference between traditional software development and DevOps
 “In traditional software development, development and operations teams work separately. Developers write the code, and later the operations team deploys and manages it. This often causes delays, communication gaps, and deployment issues.
 
 In DevOps, both teams work together throughout the software lifecycle. The process is more automated, releases are faster, testing and deployment are continuous, and issues are resolved more quickly.
 
-## 5. What are the different phases in the DevOps lifecycle? explain in one line each phase
+## What are the different phases in the DevOps lifecycle? explain in one line each phase
 DevOps lifecycle is the continuous process following below steps
 
 - Planning – decide what feature or change needs to be developed.  
@@ -27,7 +27,7 @@ DevOps lifecycle is the continuous process following below steps
 - Operations – the application is managed and kept running smoothly.  
 - Monitoring – performance, errors, and system health are continuously tracked.
 
-## 6. what is sdlc and different phases of it ?
+## what is sdlc and different phases of it ?
 “SDLC stands for Software Development Life Cycle. It is a step-by-step process used to develop software in a structured way.”
 
 Phases of SDLC:
@@ -40,7 +40,7 @@ Phases of SDLC:
 - Deployment – release the software to users or production.  
 - Maintenance – fix issues, update features, and support the software after release.
 
-## 7. Different types of sdlc models
+## Different types of sdlc models
 Different types of SDLC models are different ways to develop software depending on project need.
 
 - Waterfall model – work is done step by step, one phase after another.  
@@ -64,21 +64,21 @@ Example: in a startup app, features are added every 2 weeks based on user feedba
 - DevOps model – development, testing, deployment, and monitoring happen continuously with automation.  
 Example: in an e-commerce app, after code is written, it is automatically tested and deployed using CI/CD.  
 
-## 8. what problem of sdlc does the devops solves
+## what problem of sdlc does the devops solves
 “For example, in traditional SDLC, if a team develops a new login feature, the developer first writes the code and then hands it over to the testing team. After testing is completed, it is passed to the operations team for deployment. Since these teams work separately, there can be delays in handover, miscommunication, environment issues, and late bug fixing. If a bug is found at the deployment stage, the work may again go back to the development team, which increases time.
 
 In DevOps, the process is more connected and automated. Once the developer writes the code and pushes it to the repository, an automated pipeline can start. The code is built, tested, and prepared for deployment automatically. If there is any issue, it is found early, and the team can fix it quickly. After deployment, monitoring tools also check whether the feature is working properly in production.
 
 So in traditional SDLC, the process is slower because teams work in separate stages, but in DevOps, the same process becomes faster, continuous, and more reliable because of collaboration and automation.”
 
-## 9. What is DevSecOps?
+## What is DevSecOps?
 “DevSecOps means integrating security into every stage of the DevOps lifecycle, instead of treating security as a separate final step. In normal development, code is developed first, tested, deployed, and only later security may be checked. That is risky because vulnerabilities may be found very late. In DevSecOps, security checks start from the development and CI/CD stages itself.
 
 For example, when a developer pushes code to Git, the pipeline can automatically run security tools. SonarQube can check the code quality and also identify security issues like bad coding practices, possible bugs, code smells, and some vulnerability patterns. Trivy can scan dependencies, file systems, and Docker images to detect known vulnerabilities. So before the application is deployed, these tools help identify security risks early.
 
 This makes the software more secure, reduces risk, and avoids fixing major security issues in production.
 
-## 10. What is the difference between Continuous Integration, Continuous Delivery, and Continuous Deployment?
+## What is the difference between Continuous Integration, Continuous Delivery, and Continuous Deployment?
 CI stands for Continuous Integration :It means developers regularly push code to a shared repository, and that code is automatically built and tested so issues are found early.
 
 CD stands for Continuous Delivery  
