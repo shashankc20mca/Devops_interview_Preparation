@@ -912,3 +912,361 @@ ________________________________________
 ### 6. Why are passwords not used anymore for GitHub push?
 Passwords are removed because they are less secure and can be easily compromised.  
 GitHub replaced them with PAT and SSH keys to provide better security, access control, and safer authentication.  
+
+## 1) If you made a wrong commit, how would you fix it?
+
+### Case 1: Last commit is wrong and not pushed
+
+Command  
+git reset --soft HEAD~1  
+
+What it does  
+It removes the last commit but keeps the changes in staging.  
+
+Example  
+git add app.py  
+git commit -m "wrong commit message"  
+git reset --soft HEAD~1  
+
+Now the commit is removed, but the changes are still there.  
+Then make the correct commit:  
+git commit -m "correct commit message"  
+
+________________________________________
+
+### Case 2: Commit is already pushed
+
+Command  
+git revert <commit_id>  
+
+Example  
+git log --oneline  
+git revert a1b2c3d  
+git push origin main  
+
+What it does  
+It creates a new commit that reverses the wrong commit.  
+This is safer in team environments.  
+
+________________________________________
+
+## 2) If you accidentally deleted a branch, how can you recover it?
+
+Step 1: Check reflog  
+git reflog  
+
+Step 2: Find the commit id of that branch  
+
+Example output:  
+abc1234 HEAD@{3}: commit: added login feature  
+
+Step 3: Recreate the branch  
+git checkout -b feature-login abc1234  
+
+Example  
+git reflog  
+git checkout -b feature-login abc1234  
+
+This recreates the deleted branch from that commit.  
+
+________________________________________
+
+## 3) If your code is outdated compared to remote, what will you do?
+
+Step 1: Pull latest code  
+git pull origin main  
+
+Example  
+git checkout main  
+git pull origin main  
+
+If you are on your feature branch  
+First update main:  
+git checkout main  
+git pull origin main  
+
+Then go back to feature branch and merge:  
+git checkout feature1  
+git merge main  
+
+This updates your branch with latest remote changes.  
+
+________________________________________
+
+## 4) If two developers edited the same file, what happens?
+
+If both edited different lines, Git may merge automatically.  
+If both edited the same line, Git shows a merge conflict.  
+
+Example  
+
+Developer 1 changed:  
+print("Hello Team")  
+
+Developer 2 changed:  
+print("Hello DevOps")  
+
+When merging, Git may show conflict markers like:  
+
+<<<<<<< HEAD  
+print("Hello Team")  
+=======  
+print("Hello DevOps")  
+>>>>>>> feature-branch  
+
+Then one developer must resolve it manually.  
+
+________________________________________
+
+## 5) If a merge conflict occurs, what steps will you follow?
+
+Step 1: Pull or merge  
+git pull origin main  
+or  
+git merge main  
+
+Step 2: Open the conflicted file  
+You will see:  
+
+<<<<<<< HEAD  
+print("Hello Team")  
+=======  
+print("Hello DevOps")  
+>>>>>>> feature-branch  
+
+Step 3: Edit and keep final correct code  
+print("Hello DevOps Team")  
+
+Step 4: Add resolved file  
+git add app.py  
+
+Step 5: Commit  
+git commit -m "resolved merge conflict"  
+
+Full example  
+git checkout feature1  
+git merge main  
+# conflict happens  
+# open file and fix it  
+git add app.py  
+git commit -m "resolved merge conflict with main"  
+
+________________________________________
+
+## 6) If you want to temporarily save your work, what will you use?
+
+Use git stash.  
+
+Save current uncommitted work  
+git stash  
+
+Check saved stashes  
+git stash list  
+
+Bring back the work  
+git stash apply  
+or  
+git stash pop  
+
+Example  
+git stash  
+git checkout main  
+git pull origin main  
+git checkout feature1  
+git stash pop  
+
+What it does  
+It temporarily saves your changes so you can switch branches without committing unfinished work.  
+
+________________________________________
+
+## 7) If your push is rejected, what could be the reason?
+
+Common reason  
+Remote has new commits that your local branch does not have.  
+
+Example error  
+! [rejected] main -> main (fetch first)  
+
+Fix steps  
+
+Step 1: Pull latest changes  
+git pull origin main  
+
+Step 2: Resolve conflicts if any  
+
+Step 3: Push again  
+git push origin main  
+
+________________________________________
+
+Another possible reason  
+Protected branch or no permission.  
+
+Example:  
+•	direct push to main is blocked  
+•	you need to create a pull request instead  
+
+________________________________________
+
+## 8) If you want to undo the last commit but keep changes, what will you do?
+
+Command  
+git reset --soft HEAD~1  
+
+Example  
+git commit -m "added wrong file"  
+git reset --soft HEAD~1  
+
+Now the commit is removed, but changes are still available.  
+Then fix and commit again:  
+git commit -m "added correct file"  
+
+________________________________________
+
+## 9) If you want to discard all local changes, what will you do?
+
+Discard uncommitted changes in tracked files  
+git reset --hard HEAD  
+
+Example  
+git reset --hard HEAD  
+
+This removes all uncommitted changes.  
+
+________________________________________
+
+If untracked files are also there  
+git clean -fd  
+
+Example  
+git reset --hard HEAD  
+git clean -fd  
+
+What it does  
+•	git reset --hard HEAD removes tracked file changes  
+•	git clean -fd removes untracked files and folders  
+
+Be careful, because this deletes local work.  
+
+________________________________________
+
+## 10) If you want to work on a new feature without affecting main code, what will you do?
+
+Step 1: Create a new branch  
+git checkout -b feature-login  
+
+Step 2: Work on that branch  
+git add .  
+git commit -m "added login feature"  
+
+Step 3: Push branch to remote  
+git push origin feature-login  
+
+Full example  
+git checkout -b feature-login  
+git add .  
+git commit -m "added login API"  
+git push origin feature-login  
+
+This keeps main safe and isolated from your feature work.  
+
+________________________________________
+
+## 11) If you want to review someone else's code, what will you use?
+
+Use a Pull Request.  
+
+Practical steps  
+
+Step 1: Developer pushes branch  
+git push origin feature-login  
+
+Step 2:  
+In GitHub, open a Pull Request from feature-login to main  
+
+Step 3:  
+Reviewer checks:  
+•	changed files  
+•	commit history  
+•	comments  
+•	approval  
+
+Step 4:  
+After approval, merge PR  
+
+Interview line  
+“We usually use Pull Requests in GitHub to review code before merging into main.”  
+
+
+## What is git reset vs git revert?
+
+### 🟡 git reset
+“Used to undo commits in my local repository by moving HEAD backward. It does not affect remote unless I force push, which is risky.”
+
+________________________________________
+
+### 🔴 git revert
+“Used to safely undo a commit by creating a new commit. It is preferred when changes are already pushed because it does not rewrite history.”
+
+### ✅ git reset
+
+Works on LOCAL repo only (your commits)  
+
+What it affects:  
+•	Working directory ✔️ (depends on option)  
+•	Local repo ✔️  
+•	Remote repo ❌  
+
+________________________________________
+
+Example (not pushed yet)  
+git commit -m "wrong commit"  
+git reset --soft HEAD~1  
+
+Now:  
+•	commit removed from LOCAL repo  
+•	changes still present in your files  
+•	GitHub is NOT affected  
+
+________________________________________
+
+⚠️ Important:  
+If you already pushed and then do reset:  
+git reset --hard HEAD~1  
+git push  
+
+❌ Push will be rejected  
+(because remote still has that commit)  
+
+To force:  
+git push --force  
+
+⚠️ Dangerous in team environment  
+
+________________________________________
+
+### ✅ git revert
+
+Works on BOTH local + remote (safe way)  
+
+What it affects:  
+•	Local repo ✔️  
+•	Remote repo ✔️ (after push)  
+•	History is preserved ✔️  
+
+________________________________________
+
+Example  
+git revert <COMMIT ID>  
+git push origin main  
+
+Now:  
+•	original commit is still there  
+•	new commit is added that cancels it  
+
+
+
+
+
+
