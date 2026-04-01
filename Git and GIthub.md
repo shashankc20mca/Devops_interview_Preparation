@@ -1267,6 +1267,171 @@ Now:
 
 
 
+#### google keep ###
+## A version control system (VCS) is a tool that manages multiple versions of your documents, programs, websites, or any files. It acts like a time machine, keeping a history of all changes made to files. 
+
+## Types of Version Control Systems
+Localized Version Control System: Used by individuals to control versions locally 
+
+## Drawbacks of Localized and Centralized Systems
+Localized: If your local system fails, you lose your code and version history.  
+Centralized: If the server is down, you cannot perform versioning operations.  
+
+Distributed systems address these drawbacks by giving every user a full copy of the repository, including its history.  
+You make changes and commit them locally. When ready, you sync your changes with the central repository by pushing them. You can also pull changes made by others.  
+
+Clone: Download the entire repository to your local machine.  
+Commit: Make changes and save versions locally.  
+Push: Upload your changes to the remote repository.  
+Pull: Download changes made by others from the remote repository.  
+
+## Installing Git
+apt install git or yum install git  
+git --version //check git version  
+
+## Setting Up the git repository
+mkdir Titan  
+cd Titan  
+git init  //Initialize the directory as a Git repository. This will create a .git directory that maintains all versions, history, and configuration.  
+
+## Adding Files and Directories
+mkdir Nebula  
+mkdir Jupiter  
+mkdir Pluto  
+touch Dutch  
+ touch Saturn  
+ touch pi  
+touch Jupiter/file1  
+ touch Pluto/file2  
+ touch Nebula/file3  
+
+git status //Check the status of your repository to see which files are untracked.  
+git add . //To start tracking the untracked files, add them to the staging area.  
+git commit -m "New files committed" //Committing Changes  
+
+## Configuring User Name and Email
+git config --global user.email "your_email@example.com"  
+git config --global user.name "Your Name"  
+
+///After configuring your user name and email, repeat the commit command.  
+
+## connecting to Remote Repository
+git remote add origin https://github.com/yourusername/Titan-work.git  
+git branch -m main //Change your branch name from master to main.  
+git push -u origin main //Push your local repository content to the remote repository  
+
+git push -u origin <branch> → sets an upstream (tracking) branch so that for  
+Later pushes we can use git push  
+
+git branch --unset-upstream //remove upstream set  
+
+git push origin <branch> → just pushes, no tracking set  
+
+## Viewing Commit History
+git log --oneline  
+git show <commit_id>  
+
+git pull  //Pulling Changes from Remote  
+
+## Introduction to Branches in Git
+
+Branches in Git are a concept where, if a team is working on different features, each developer can work on a separate branch. This prevents disturbance to the stable copy of the code.  
+Suppose there is a branch called Main or Master, which is the main branch. This branch keeps a stable copy of the code. If a new change is to be made by a developer, or during a period such as a sprint in an agile environment, a new branch can be created from the existing branch. Changes can be made in this new branch while the main copy remains intact.  
+Once all changes are complete and stable on the sprint branch, they can be merged back into the main branch.  
+
+git branch -c old-branch new-branch //creates a new branch named new-branch that is a copy of old-branch  
+git branch -a //This command lists all the branches  
+git checkout sprint1 //switching to sprint1 branch  
+
+git rm saturn6.py //for removing files  
+
+git mv saturn1.py saturn11.py //rename a file  
+
+git push origin sprint1 //Push the changes to the sprint1 branch  
+
+git checkout -b sprint2 creates a new branch named sprint2 and immediately switches the working directory to that branch.  
+
+## Merging Branches
+To merge changes from sprint1 back to the main branch, switch to the main branch and use the merge command.  
+git checkout main  
+git merge sprint1  
+
+git push --all origin //Push all branches to the remote repository.  
+
+## Cloning a Repository
+git clone <repository-url>  
+
+The .gitignore file is used to specify files or extensions that should be ignored by Git.  
+git add .gitignore  
+git commit -m "git ignored"  
+
+## Git Rollback:
+
+### 1)Suppose we have made changes but have not yet staged them. To discard these changes and rollback to the last committed state, use:
+git checkout <file>  
+
+To see what changes you have made before staging, use:  
+git status to see which files have been modified.  
+git diff <file> to see the exact changes in a file  
+
+### 2)If you have staged changes, use:
+git diff --cached to see the differences between the staged changes and the last commit.  
+git restore --staged <file> //If you have already staged changes but want to unstage them  
+
+### 3)Once you have committed changes, you can still rollback using two main methods:
+method 1 git revert HEAD or git revert <commit-id>  
+method 2  git reset --hard <commit-id>  
+
+git revert HEAD will create a new commit that reverses the last commit. Running git reset --hard <commit-id> will reset the branch to the specified commit and remove all commits after it.  
+
+## Viewing Commit History and Differences
+git log --oneline  
+git diff <previous-commit> <current-commit>  
+
+git remote -v //shows the url for which the repo is pointing to  
+
+git remote rm origin //remove the current origin  
+git remote add origin https://github.com/USERNAME/REPOSITORY.git   
+ //Then add the new origin  
+
+You need to explicitly allow Git to merge unrelated histories. Your local repo and the GitHub repo were created independently:  
+git pull origin main --allow-unrelated-histories  
+
+## Set the ssh access to github using public and private key
+
+Step 1:ssh-keygen -t ed25519 -C "ansible-vm"  
+-t → type of key  
+ed25519 → modern, secure, fast algorithm  
+-C → comment  
+"ansible-vm" → label added to the key  
+
+or we can use default key also  
+
+step 2:cat ~/.ssh/id_ed25519.pub  
+Copy output → GitHub →  
+Settings → SSH and GPG Keys → New SSH Key  
+
+step 3:Test GitHub SSH from VM  
+ssh -T git@github.com  
+
+step 4:mkdir playbook  
+
+step5:git init  
+
+step 6:vi first.yml  
+
+step 7:git add .  
+
+step 8:git commint -m "first"  
+
+step 9:git branch -M main  
+
+step 10:git remote add origin git@github.com:shashankc20mca/playbook2.git  
+
+step 11:git push -u origin main  
+
+
+
 
 
 
