@@ -1,4 +1,4 @@
-```md
+
 # Fundamentals of devops
 
 ## 1. What is DevOps?
@@ -867,4 +867,4 @@ DevOps in cloud helps automate infrastructure, deployment, scaling, monitoring, 
 
 ### Example:
 “For example, using Terraform to create AWS infrastructure and Argocd to deploy the application automatically.”
-```
+
