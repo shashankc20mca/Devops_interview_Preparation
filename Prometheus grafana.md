@@ -1,74 +1,121 @@
-Prometheus and Grafana
-1. What is Monitoring?
+# Prometheus and Grafana
+
+---
+
+## 1. What is Monitoring?
+
 Monitoring means continuously checking the health, performance, and availability of systems, servers, applications, and services.
-It helps answer:
-•	Is the system running?
-•	Is CPU or memory high?
-•	Is the application slow?
-•	Is anything failing?
+
+**It helps answer:**
+
+- Is the system running?
+- Is CPU or memory high?
+- Is the application slow?
+- Is anything failing?
+
 In simple terms, monitoring helps us detect problems early and keep systems healthy.
-________________________________________
-2. What is Prometheus?
+
+---
+
+## 2. What is Prometheus?
+
 Prometheus is an open-source monitoring and alerting tool. It collects metrics such as CPU, memory, disk, network, and application metrics, stores them as time-series data, and helps query them.
+
 It is mainly used to monitor servers, containers, Kubernetes, and applications.
-________________________________________
-3. What is Grafana?
+
+---
+
+## 3. What is Grafana?
+
 Grafana is an open-source visualization tool used to create dashboards from monitoring data.
+
 It connects to data sources like Prometheus and shows metrics in the form of graphs, panels, charts, and dashboards.
+
 In simple terms, Prometheus collects data and Grafana displays it.
-________________________________________
-4. Why use Prometheus + Grafana?
+
+---
+
+## 4. Why use Prometheus + Grafana?
+
 Prometheus and Grafana are commonly used together because:
-•	Prometheus collects and stores metrics
-•	Grafana visualizes those metrics in dashboards
-•	Prometheus can trigger alerts
-•	Grafana makes monitoring easy to understand
-In short:
-•	Prometheus = metrics collection and alerting
-•	Grafana = visualization and dashboards
-________________________________________
-5. How Prometheus works
+
+- Prometheus collects and stores metrics
+- Grafana visualizes those metrics in dashboards
+- Prometheus can trigger alerts
+- Grafana makes monitoring easy to understand
+
+**In short:**
+
+- Prometheus = metrics collection and alerting
+- Grafana = visualization and dashboards
+
+---
+
+## 5. How Prometheus works
+
 Prometheus works using a pull model.
-Flow:
-1.	Target systems expose metrics on an HTTP endpoint
-2.	Prometheus scrapes those metrics at regular intervals
-3.	It stores them in its database
-4.	Users query the data using PromQL
-5.	Alerts can be triggered based on conditions
-Example:
-•	Node Exporter exposes server metrics
-•	Prometheus pulls those metrics
-•	Grafana shows them in a dashboard
-________________________________________
-6. How Grafana works
+
+**Flow:**
+
+1. Target systems expose metrics on an HTTP endpoint
+2. Prometheus scrapes those metrics at regular intervals
+3. It stores them in its database
+4. Users query the data using PromQL
+5. Alerts can be triggered based on conditions
+
+**Example:**
+
+- Node Exporter exposes server metrics
+- Prometheus pulls those metrics
+- Grafana shows them in a dashboard
+
+---
+
+## 6. How Grafana works
+
 Grafana connects to a data source like Prometheus and fetches the stored metrics.
-Flow:
-1.	Grafana connects to Prometheus
-2.	User creates panels and dashboards
-3.	Grafana sends queries to Prometheus
-4.	Prometheus returns metric data
-5.	Grafana displays it visually
+
+**Flow:**
+
+1. Grafana connects to Prometheus
+2. User creates panels and dashboards
+3. Grafana sends queries to Prometheus
+4. Prometheus returns metric data
+5. Grafana displays it visually
+
 Grafana does not collect metrics by itself. It only reads data from data sources and visualizes it.
-________________________________________
-7. What is Node Exporter?
+
+---
+
+## 7. What is Node Exporter?
+
 Node Exporter is a Prometheus exporter used to collect hardware and OS-level metrics from a Linux server.
-It provides metrics like:
-•	CPU usage
-•	memory usage
-•	disk usage
-•	filesystem stats
-•	network stats
-•	system load
+
+**It provides metrics like:**
+
+- CPU usage
+- memory usage
+- disk usage
+- filesystem stats
+- network stats
+- system load
+
 It is commonly installed on servers so Prometheus can monitor them.
-________________________________________
-8. How Node Exporter works
+
+---
+
+## 8. How Node Exporter works
+
 Node Exporter runs as a process on the server and exposes system metrics on an HTTP endpoint, usually:
-http://<server-ip>:9100/metrics
-Flow:
-1.	Node Exporter collects system-level metrics from the server
-2.	It exposes them in Prometheus format
-3.	Prometheus scrapes that endpoint regularly
-4.	Grafana uses Prometheus data to show dashboards
+
+`http://<server-ip>:9100/metrics`
+
+**Flow:**
+
+1. Node Exporter collects system-level metrics from the server
+2. It exposes them in Prometheus format
+3. Prometheus scrapes that endpoint regularly
+4. Grafana uses Prometheus data to show dashboards
 
 
 Yes. Now I’ll keep it exactly to what you **actually need for interview** based on **your Prometheus config + alert_rules.yml**.
