@@ -31,7 +31,7 @@ I am using these facts from your files:
 # Say this first if they ask “Explain your monitoring project”
 
 **Answer:**
-In my custom EKS project, I built an out-of-cluster monitoring stack using Prometheus, Grafana, Alertmanager, Node Exporter, and Blackbox Exporter. Prometheus was configured to scrape metrics every 15 seconds and evaluate alerts every 15 seconds. I used EC2 service discovery to automatically find EKS worker nodes, Node Exporter for infrastructure metrics, and Blackbox Exporter for endpoint monitoring of the ALB URL and the application health endpoint. Alertmanager was integrated to send email alerts, and Grafana was used for dashboards and visualization.
+In my EKS project, I implemented monitoring using Prometheus, Grafana, Alertmanager, Node Exporter, and Blackbox Exporter. Prometheus scraped worker-node metrics every 15 seconds using EC2 service discovery with private IPs and relabel filters, and Blackbox Exporter monitored the ALB URL and application health endpoint. I created warning and critical alerts for availability, CPU, memory, and disk conditions, and Alertmanager sent email notifications. Grafana dashboards helped visualize node health and endpoint availability for faster troubleshooting.
 
 ---
 
@@ -321,11 +321,3 @@ The critical alerts were `InstanceDown`, `WebsiteDown`, `ServiceUnavailable`, `H
 
 
 
-
-
-## 2. Disk warning threshold
-
-# Best final 30-second answer if they ask randomly
-
-**Answer:**
-In my EKS project, I implemented monitoring using Prometheus, Grafana, Alertmanager, Node Exporter, and Blackbox Exporter. Prometheus scraped worker-node metrics every 15 seconds using EC2 service discovery with private IPs and relabel filters, and Blackbox Exporter monitored the ALB URL and application health endpoint. I created warning and critical alerts for availability, CPU, memory, and disk conditions, and Alertmanager sent email notifications. Grafana dashboards helped visualize node health and endpoint availability for faster troubleshooting.
