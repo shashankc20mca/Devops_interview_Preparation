@@ -1,8 +1,8 @@
-## EFS — Full Notes from A to Z
+# EFS — Full Notes from A to Z
 
-### What is EFS?
+## What is EFS?
 
-**EFS (Elastic File System)** is AWS’s managed **file storage** service.
+**EFS (Elastic File System)** is AWS’s managed **file storage** service.  
 It provides a shared file system that multiple EC2 instances or Kubernetes Pods can mount and use at the same time. Amazon EFS uses NFS and is designed to grow and shrink automatically as you add or remove files. ([AWS Documentation][1])
 
 ---
@@ -11,7 +11,7 @@ It provides a shared file system that multiple EC2 instances or Kubernetes Pods 
 
 ### 1. File storage
 
-EFS is **file storage**, not block storage.
+EFS is **file storage**, not block storage.  
 It behaves like a shared network file system.
 
 ### 2. Shared storage
@@ -85,7 +85,7 @@ EFS is **file storage**.
 
 ### Can multiple EC2 instances use the same EFS file system?
 
-Yes.
+Yes.  
 That is one of the key benefits of EFS.
 
 ### What protocol does EFS use?
@@ -102,7 +102,7 @@ An access point is an application-specific entry point into the EFS file system 
 
 ### What is the difference between EFS and EBS?
 
-EFS is shared file storage.
+EFS is shared file storage.  
 EBS is block storage usually attached to EC2 in a single AZ.
 
 ### What CSI driver is used for EFS in EKS?
@@ -153,7 +153,7 @@ I would check:
 
 ### Your workload needs a disk-like volume attached to one instance, not shared storage. Should you use EFS?
 
-No.
+No.  
 That is a better fit for EBS.
 
 ---
@@ -176,9 +176,3 @@ That is a better fit for EBS.
 
 **“EFS is Amazon Elastic File System, which is AWS’s managed shared file storage service. It provides a file system that multiple EC2 instances or Kubernetes Pods can mount at the same time. It is useful when applications need common shared storage. In EKS, EFS is used through the EFS CSI driver.”** ([AWS Documentation][1])
 
-[1]: https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html?utm_source=chatgpt.com "How Amazon EFS works - Amazon Elastic File System"
-[2]: https://docs.aws.amazon.com/efs/latest/ug/getting-started.html?utm_source=chatgpt.com "Getting started with Amazon EFS - Amazon Elastic File System"
-[3]: https://docs.aws.amazon.com/efs/latest/ug/network-access.html?utm_source=chatgpt.com "Using VPC security groups - Amazon Elastic File System"
-[4]: https://docs.aws.amazon.com/efs/latest/ug/mounting-access-points.html?utm_source=chatgpt.com "Mounting with EFS access points"
-[5]: https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html?utm_source=chatgpt.com "What is Amazon Elastic File System?"
-[6]: https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html?utm_source=chatgpt.com "Use elastic file system storage with Amazon EFS - Amazon EKS"
