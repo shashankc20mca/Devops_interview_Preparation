@@ -31,21 +31,16 @@ You may have separate tables like:
 
 ### Users table
 
-user_id  
-name  
-email  
-1  
-Ram  
-ram@gmail.com  
+| user_id | name | email |
+|---|---|---|
+| 1 | Ram | ram@gmail.com |
 
 ### Orders table
 
-order_id  
-user_id  
-product  
-101  
-1  
-Laptop  
+| order_id | user_id | product |
+|---|---|---|
+| 101 | 1 | Laptop |
+
 
 Here:  
 Users and Orders are related  
