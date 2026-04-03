@@ -181,7 +181,12 @@ A bucket policy or public access configuration may be restricting access to that
 ---
 
 ## All important S3 storage classes and lifecycle of storage
+## S3 storage classes and lifecycle cost logic
 
+First remember this:
+
+S3 Lifecycle does not “compress” files or change file content.  
+ It only changes the storage class of an object based on rules like object age, tags, prefix, or version status, so storage becomes cheaper over time. AWS says lifecycle can transition objects to another class or expire them automatically.
 ### 1. S3 Standard
 
 Used for frequently accessed data.  
