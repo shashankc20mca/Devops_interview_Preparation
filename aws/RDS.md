@@ -5,28 +5,17 @@
 Suppose you have an ecommerce app.  
 You may have separate tables like:
 
-**Users table**
+### Users table
 
-```text
-user_id
-name
-email
-1
-Ram
-ram@gmail.com
-```
+| user_id | name | email |
+|---|---|---|
+| 1 | Ram | ram@gmail.com |
 
-**Orders table**
+### Orders table
 
-```text
-order_id
-user_id
-product
-101
-1
-Laptop
-```
-
+| order_id | user_id | product |
+|---|---|---|
+| 101 | 1 | Laptop |
 Here:
 
 - Users and Orders are related
