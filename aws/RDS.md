@@ -1,4 +1,30 @@
+# Relational database
 
+A relational database stores data in the form of tables.  
+Each table has:
+
+- rows
+- columns
+
+And tables can be connected to each other using relationships.  
+Examples:
+
+- MySQL
+- PostgreSQL
+- Oracle
+- SQL Server
+
+---
+
+# Non-relational database
+
+A non-relational database does not strictly store data in table-to-table relational form.  
+It can store data as:
+
+- documents
+- key-value pairs
+
+---
 
 ## 1. Relational database in simple words
 
