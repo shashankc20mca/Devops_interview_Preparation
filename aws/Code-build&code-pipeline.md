@@ -1,4 +1,4 @@
-```md
+
 ## CodePipeline and CodeBuild
 
 Since you used **Jenkins for CI** and **Argo CD for CD**, the easiest way to understand these is:
@@ -188,4 +188,3 @@ A good answer:
 ### If interviewer asks: “Can CodePipeline work with services outside AWS?”
 
 Yes. AWS says CodePipeline can integrate with other tools or services through integration points. ([AWS Documentation][7])
-```
