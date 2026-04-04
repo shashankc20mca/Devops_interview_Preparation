@@ -1,3 +1,10 @@
+## Why you used docker hub instead of ecr?
+
+In that project, I used Docker Hub because it was simpler and faster for my setup. I already had the images and workflow working there, so for a fresher-level project it was enough to build, push, and pull images. If the project were more AWS-focused or production-oriented, I would prefer ECR because it is AWS-native and integrates better with IAM and EKS
+
+
+
+
 Amazon ECR, or Amazon Elastic Container Registry, is AWS’s managed container image registry. It stores Docker images and OCI-compatible images and artifacts. Every AWS account gets a default private ECR registry, and AWS also has ECR Public for publicly shareable images
 
 ### 1. What is a registry?
@@ -36,6 +43,4 @@ IAM policy is attached to users, groups, or roles. Repository policy is attached
 
 Both store container images, but ECR is AWS-native and integrates directly with AWS IAM, repository policies, EKS, ECS, scanning, and lifecycle management.
 
-## Why you used docker hub instead of ecr?
 
-In that project, I used Docker Hub because it was simpler and faster for my setup. I already had the images and workflow working there, so for a fresher-level project it was enough to build, push, and pull images. If the project were more AWS-focused or production-oriented, I would prefer ECR because it is AWS-native and integrates better with IAM and EKS
